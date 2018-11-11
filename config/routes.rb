@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  resources :assignments
+
   resources :players
-  resources :teams
+
+  resources :teams do
+    resources :assignments
+  end
+  
+  resources :assignments
+
+
 
   root 'sessions#welcome'
 
@@ -16,6 +23,6 @@ Rails.application.routes.draw do
 
    # logout_path
    get '/logout' => 'sessions#logout'
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

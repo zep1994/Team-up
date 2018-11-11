@@ -1,0 +1,15 @@
+<h2>The Team</h2>
+<div class="content">
+    <ul id="teams_list">
+    <% @teams.each do |t| %>
+        <li><%= link_to "#{t.name}", team_path(t) %></li>
+    <% end %>
+    </ul>
+</div>
+
+<div class="sidebar">
+    <h3>Menu</h3>
+    <ul>
+        <li><%= link_to "Add a new team", new_team_path %></li>
+    </ul>
+</div>
