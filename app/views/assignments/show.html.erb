@@ -1,0 +1,9 @@
+<h2>Assignment Information</h2>
+
+Assignment Name, Number: <%= @assignment.name %>, #<%= @assignment.id %><br>
+Assignment Description: <%= @assignment.description %><br>
+Assigned Team: #<%= @assignment.team_id %> - <%= @assignment.team.name %><br>
+Assigned Player: #<%= @assignment.player_id %> - <%= @assignment.player.name %><br>
+<br></br>
+<p><%= link_to "Edit this assignment", edit_assignment_path(@assignment.id) %></p>
+<p><%= link_to "Delete", @assignment, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
