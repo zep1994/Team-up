@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     @player = Player.new
+    render 'login'
   end
 
   def home
@@ -18,6 +19,15 @@ class SessionsController < ApplicationController
             redirect_to login_path
         end
   end
+
+  def logout
+        if session[:player_id]
+            session.clear
+            redirect_to root_path
+        else
+            redirect_to home_path
+        end
+    end
 
 
 def destroy

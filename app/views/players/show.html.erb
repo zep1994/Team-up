@@ -1,0 +1,17 @@
+<h1>Personnel file: <%= "#{@player.name}" %></h1>
+
+<div>
+    <ul>
+        <li>Admin: <%= @player.leader %></li>
+        <li>Specialty: <%= @player.specialty %></li>
+        <li>Current assignment(s):
+            <% if @player.assignments %>
+                <% @player.assignments.each do |a| %>
+                    <%= link_to a.name, team_assignment_path(a.team, a) %>
+                <% end %>
+            <% end %></li>
+        <br>
+    </ul>
+<br>
+<br>
+<p><%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Delete", @player, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>

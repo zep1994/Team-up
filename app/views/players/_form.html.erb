@@ -1,0 +1,21 @@
+<%= form_for @player do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :specialty %>
+    <%= f.text_field :specialty %>
+    <br>
+    <%= f.label :leader, "Leader?" %>
+    <br>
+    <%= f.radio_button :leader, "false" %>
+    <%= f.label :leader_false, "No" %>
+    <br>
+    <%= f.radio_button :leader, "true" %>
+    <%= f.label :leader_true, "Yes" %>
+    <br>
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    <br>
+    <%= f.submit %>
+<% end %>
