@@ -1,0 +1,22 @@
+<h1>Team Information</h1>
+
+<h2><%= @team.name %></h2>
+<ul>
+    <li>Type/player: <%= @team.type_player %></li>
+    <li>Role: <%= @team.role %></li>
+    <li>Team Quote: <%= @team.quote %></li>
+</ul><br>
+
+<h3>Current Team</h3>
+<ul>
+<% @teams.each do |t| %>
+    <% a = Assignment.find_by(:team_id => @team.id, :player_id => t.id) %>
+    <li><%= link_to "#{t.name}", team_assignment_path(@team, a) %></li>
+<% end %>
+</ul>
+<br>
+<p><%= link_to "Add assignment", new_team_assignment_path(@team) %></p>
+<br></br>
+
+
+<p><%= link_to "Edit this team's info", edit_team_path(@team) %> | <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Confirm Deleting?" }  %></p>
