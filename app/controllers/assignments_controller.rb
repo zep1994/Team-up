@@ -28,7 +28,6 @@ class AssignmentsController < ApplicationController
     def show
         if @assignment
           redirect_to assignment_path(@assignment)
-            end
         else
             redirect_to new_assignment_path, notice: "That team does not currently have an assignment, create one here."
         end
