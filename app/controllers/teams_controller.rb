@@ -54,4 +54,3 @@ class TeamsController < ApplicationController
         @team = Team.find_by(id: params[:id])
     end
 end
-end

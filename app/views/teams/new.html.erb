@@ -1,0 +1,36 @@
+<h1>New Ship Form</h1>
+
+<%= form_for @ship do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :type_player %>
+    <%= f.text_field :type_player %><br>
+    <%= f.label :role %>
+    <%= f.text_field :role %><br>
+    <%= f.label :quote %>
+    <%= f.text_field :quote %><br>
+
+    <p>Create Assignment?</p>
+    <%= f.fields_for :assignments, @team.assignments.build do |a| %>
+
+        <p>Select a team member:
+        <%= select_tag 'team[assignments_attributes][0][player_id]', content_tag(:option,'select one...',:value=>"")+options_from_collection_for_select(Player.all, :id, :name) %></p>
+
+        <%= a.hidden_field :team_id, value: @team.id %>
+
+        <%= a.label :name, "Assignment Name" %>
+        <%= a.text_field :name %><br>
+        <%= a.label :description %>
+        <%= a.text_field :description %>
+    <% end %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<% if @team.errors.any? %>
+  <div class="error_explanation">
+    <% @team.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
