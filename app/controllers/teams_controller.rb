@@ -46,7 +46,7 @@ class TeamsController < ApplicationController
 
     private
 
-    def ship_params
+    def team_params
         params.require(:team).permit(:name, :type_player, :role, :quote, :assignment_ids => [], :assignments_attributes=>[:name, :description, :player_id, :team_id])
     end
 
