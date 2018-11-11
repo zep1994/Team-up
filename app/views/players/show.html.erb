@@ -7,7 +7,7 @@
         <li>Current assignment(s):
             <% if @player.assignments %>
                 <% @player.assignments.each do |a| %>
-                    <%= link_to a.name, team_assignment_path(a.team, a) %>
+                    <%= link_to a.name, team_assignment_path(a.team, a) %><br />
                 <% end %>
             <% end %></li>
         <br>
@@ -15,3 +15,4 @@
 <br>
 <br>
 <p><%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Delete", @player, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
+<li><a href="/home"><button>Home</button></a></li>

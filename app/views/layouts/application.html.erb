@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<%= link_to "Team Up", root_path, class: "navbar-brand" %>
+			</div>
+			<ul class="navbar-nav nav">
+				<li><%= link_to "Sign Up", login_path %></li>
+				<% if logged_in? %>
+					<li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to "Log In", login_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	</nav>
     <div class="wrapper">
      <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
      <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
