@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+
+    <h2>Welcome, <%= @player.name %></h2>
+
+    <div class="content">
+      <h3>Directory</h3>
+      <ul>
+        <li><%= link_to "Teams", teams_path %></li>
+        <li><%= link_to "Players", players_path %></li>
+        <li><%= link_to "go to Assignments", assignments_path %></li>
+        </ul>
+    </div>
+
+    <div id="listArea"></div>
+    <div id="moreInfo"><p></p></div>
+
+    <div class="sidebar">
+      <h3>Menu</h3>
+      <ul>
+        <li><%= link_to "Edit Profile", edit_player_path(current_user) %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

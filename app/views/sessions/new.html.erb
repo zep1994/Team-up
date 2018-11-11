@@ -1,0 +1,12 @@
+<h2>Login!</h2>
+<%= form_tag(sessions_path) do %>
+<table class="new_form">
+    <thead class="new_form">
+    <td><%= label_tag :name %></td>
+    <td><%= text_field_tag :name %><br /></td>
+    <td><%= label_tag :password %></td>
+    <td><%= password_field_tag :password %><br /></td>
+  <td><input type="submit" class="login_button"></td>
+  </thead>
+</table>
+<% end %>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Team up</h2>
+
+    <div class="welcome">
+      <h4>Welcome to Team up, the personnel and team management system.
+      <br>
+
+    </div>
+
+    <div class="welcome-sidebar">
+      <h3>Menu</h3>
+      <ul>
+        <% if !logged_in? %>
+          <li><a href="/login"><button>Log In</button></a></li>
+          <li><a href="/players/new"><button>Sign Up</button></a></li>
+        <% else %>
+          <li><a href="/home"><button>Home</button></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
