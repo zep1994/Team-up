@@ -11,6 +11,24 @@ class SessionsController < ApplicationController
   end
 
   def login
+        if auth_hash = request.env["omniauth.auth"]
+        #log in omniauth
+
+        oauth_email = request.env["omniauth.auth"]["email"]
+        if @player = Player.find_by(:email => oauth_email)
+          session[:player_id] = @player.id
+          redirect_to player_path(@player)
+
+        else
+          player = Player.new(:email => oauth_email)
+          if @player.save
+            session[:player_id] = @player.id
+            redirect_to player_path(@player)
+          else
+            redirect_to root_path
+          end
+        end
+    else
       @player = Player.find_by(name: params[:player][:name])
         if @player && @player.authenticate(params[:player][:password])
             session[:player_id] = @player.id
@@ -18,22 +36,19 @@ class SessionsController < ApplicationController
         else
             redirect_to login_path
         end
+      end
   end
 
   def logout
-        if session[:player_id]
-            session.clear
-            redirect_to root_path
-        else
-            redirect_to home_path
-        end
+    if session[:player_id]
+        session.clear
+        redirect_to login_path
+    else
+        redirect_to home_path
     end
+  end
 
 
-def destroy
-  session.delete :player_id
-  redirect_to root_path
-end
 
 private
 

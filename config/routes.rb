@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :teams do
     resources :assignments
   end
-  
+
   resources :assignments
 
 
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
    # logout_path
    get '/logout' => 'sessions#logout'
+   get '/auth/:provider/callback' => 'sessions#login'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

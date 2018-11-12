@@ -4,12 +4,6 @@
     <ul>
         <li>Admin: <%= @player.leader %></li>
         <li>Specialty: <%= @player.specialty %></li>
-        <li>Current assignment(s):<br /><br />
-            <% if @player.assignments %>
-                <% @player.assignments.each do |a| %>
-                    <%=  a.name %><br />
-                <% end %>
-            <% end %></li>
         <br>
     </ul>
 <br>

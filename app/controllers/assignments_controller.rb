@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, :authenticate_user
     before_action :set_team, only: [:edit, :update]
     before_action :set_assignment, only: [:show, :edit, :update]
 

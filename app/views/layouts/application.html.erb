@@ -16,15 +16,16 @@
 				<%= link_to "Team Up", root_path, class: "navbar-brand" %>
 			</div>
 			<ul class="navbar-nav nav">
-				<li><%= link_to "Sign Up", login_path %></li>
+				<li><%= link_to "Sign Up", new_player_path %></li>
 				<% if logged_in? %>
-					<li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+					<li><%= link_to "Sign Out", logout_path %></li>
 				<% else %>
 					<li><%= link_to "Log In", login_path %></li>
 				<% end %>
 			</ul>
 		</div>
 	</nav>
+
     <div class="wrapper">
      <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
      <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
@@ -32,5 +33,6 @@
      <div class="center">
      <%= yield %>
      </div
+    </div>
   </body>
 </html>

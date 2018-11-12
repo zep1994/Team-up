@@ -14,7 +14,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
-
+gem 'omniauth'
+gem 'omniauth-github'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

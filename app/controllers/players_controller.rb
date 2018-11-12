@@ -50,7 +50,7 @@ class PlayersController < ApplicationController
     end
 
     def destroy
-        if current_user.leader == true   # only admins can delete crew
+        if current_user.leader == true   # only admins can delete players 
             if Player.find_by(:id => params[:id]) == current_user
                 Player.find_by(:id => params[:id]).destroy
                 session.clear   # if admin deletes themself, they get logged out
