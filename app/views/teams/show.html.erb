@@ -1,14 +1,14 @@
 <h1>Team Information</h1>
 
 <h2><%= @team.name %></h2>
-<ul>
+<ul class="align">
     <li>Type/player: <%= @team.type_player %></li>
     <li>Role: <%= @team.role %></li>
     <li>Team Quote: <%= @team.quote %></li>
 </ul><br>
 
 <h3>Current Team</h3>
-<ul>
+<ul class="align">
 <% @players.each do |p| %>
     <% a = Assignment.find_by(:team_id => @team.id, :player_id => p.id) %>
     <li><%= link_to "#{p.name}", team_assignment_path(@team, a) %></li>
@@ -18,6 +18,5 @@
 <p><%= link_to "Add assignment", new_team_assignment_path(@team) %></p>
 <br></br>
 
-
 <p><%= link_to "Edit this team's info", edit_team_path(@team) %> | <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Confirm Deleting?" }  %></p>
-<li><a href="/home"><button>Home</button></a></li>
+<li><a href="/home"><button class="btn btn-primary">Home</button></a></li>

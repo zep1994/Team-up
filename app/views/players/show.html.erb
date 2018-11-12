@@ -4,15 +4,17 @@
     <ul>
         <li>Admin: <%= @player.leader %></li>
         <li>Specialty: <%= @player.specialty %></li>
-        <li>Current assignment(s):
+        <li>Current assignment(s):<br /><br />
             <% if @player.assignments %>
                 <% @player.assignments.each do |a| %>
-                    <%= link_to a.name, team_assignment_path(a.team, a) %><br />
+                    <%=  a.name %><br />
                 <% end %>
             <% end %></li>
         <br>
     </ul>
 <br>
 <br>
-<p><%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Delete", @player, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
-<li><a href="/home"><button>Home</button></a></li>
+<div class="realign1">
+<p class="realign"><%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Delete", @player, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
+<li><a href="/home"><button class="btn btn-primary">Home</button></a></li>
+</div>

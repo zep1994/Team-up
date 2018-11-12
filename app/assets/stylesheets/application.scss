@@ -14,7 +14,109 @@
  *= require_self
  */
  @import "bootstrap";
+
+.btn {
+  margin-left: -50px;
+}
+
+.readjust {
+  margin-left: -30px;
+}
+
+.realign {
+  margin-left: -40px;
+}
+
+.realign1 {
+  margin-left: 100px;
+}
+
+.realign2 a {
+  margin-left: -30px;
+}
+
+.teams_list {
+  margin-left: -30px;
+}
+
+.team_form {
+  margin-left: 300px;
+  border-radius: 5px;
+  width: 400px;
+  border: 1px solid black;
+}
+
+ body {
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626
+}
+
 .navbar {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
   height: 77px;
-  background-color: red;
+}
+
+.core-sprite {
+  background-image: image-url("core-sprite-2x.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.navbar-brand {
+  background-position: -176px 0;
+  height: 35px;
+  width: 176px;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
+
+.notification-icon {
+  background-position: -353px -298px;
+  height: 24px;
+  width: 24px;
+}
+
+
+
+.nav-item:not(:first-child) {
+  margin-left: 30px;
+}
+
+.container {
+  margin-left: 200px;
+}
+
+li {
+  list-style-type: none;
+  color: black;
+}
+
+.content {
+  font-size: 18px;
+}
+
+.welcome {
+  background-color: #fff;
+}
+
+.welcome-sidebar {
+  list-style-type: none;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+}
+
+.align {
+  margin-left: -50px;
+  font-size: 18px;
 }
