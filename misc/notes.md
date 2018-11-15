@@ -4,3 +4,17 @@
             <%=  a.name %><br />
         <% end %>
     <% end %></li>
+
+    <p>Create Assignment?</p>
+    <%= f.fields_for :assignments, @team.assignments.build do |a| %>
+
+        <p>Select a team member:
+        <%= select_tag 'team[assignments_attributes][0][player_id]', content_tag(:option,'select one...',:value=>"")+options_from_collection_for_select(Player.all, :id, :name) %></p>
+
+        <%= a.hidden_field :team_id, value: @team.id %>
+
+        <%= a.label :name, "Assignment Name" %>
+        <%= a.text_field :name %><br>
+        <%= a.label :description %>
+        <%= a.text_field :description %>
+    <% end %>
