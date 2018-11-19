@@ -10,15 +10,12 @@ class SessionsController < ApplicationController
   def home
   end
 
-  def login
+    def login
         if auth_hash = request.env["omniauth.auth"]
-        #log in omniauth
-
         oauth_email = request.env["omniauth.auth"]["email"]
         if @player = Player.find_by(:email => oauth_email)
           session[:player_id] = @player.id
           redirect_to player_path(@player)
-
         else
           player = Player.new(:email => oauth_email)
           if @player.save
@@ -37,7 +34,7 @@ class SessionsController < ApplicationController
             redirect_to login_path
         end
       end
-  end
+    end
 
   def logout
     if session[:player_id]

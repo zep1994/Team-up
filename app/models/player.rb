@@ -8,8 +8,7 @@ class Player < ApplicationRecord
   validates :name, uniqueness: { scope: :specialty, message: "A player with that specialty already exists" }
   validates :name, uniqueness: true
 
+  scope :leader, -> { where(leader: true) }
+  scope :rest, -> { where(leader: false) }
 
-  def self.leader?(leader)
-    where(:leader, true)
-  end
 end

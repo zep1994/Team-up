@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
         @players = Player.all
     end
 
+    def leaders
+      @players = Player.leader
+    end
+
       def new
           @player = Player.new
       end
@@ -21,6 +25,7 @@ class PlayersController < ApplicationController
 
       def show
           @player = Player.find_by(id: params[:id])
+
       end
 
       def edit
@@ -50,7 +55,7 @@ class PlayersController < ApplicationController
     end
 
     def destroy
-        if current_user.leader == true   # only admins can delete players 
+        if current_user.leader == true   # only admins can delete players
             if Player.find_by(:id => params[:id]) == current_user
                 Player.find_by(:id => params[:id]).destroy
                 session.clear   # if admin deletes themself, they get logged out

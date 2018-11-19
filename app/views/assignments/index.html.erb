@@ -1,7 +1,9 @@
 <h1>All assignments for all teams:</h1>
 <ul id="assignmentList align">
 <% @assignments.each do |a| %>
-    <li><%= a.player.name %> is assigned to the <%= a.team.name %>.</li>
+    <li>
+      <%= a.player.name %> is assigned to the <%= a.team.name %>.
+    </li>
 <% end %>
 </ul>
 <br>

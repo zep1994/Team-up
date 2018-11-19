@@ -11,6 +11,24 @@
       flash[:error] = "error"
     end
 
+    def create
+      if auth
+        @player = Player.find_or_create_by(uid: auth['uid']) do |u|
+          u.name = auth['info']['name']
+          u.email = auth['info']['email']
+          u.password = auth['uid']
+        end
+        @player.save
+        session[:player_id] = @player.id
+      else
+        player = Player.find_by(name: params[:player][:name])
+        player = player.try(:authenticate, params[:player][:password])
+        return redirect_to(controller: 'sessions', action: 'new') unless player
+        session[:user_id] = player.id
+        @player = player
+      end
+      redirect_to player_path(@player)
+    end
 
 
 []    <%= link_to "#{p.name}", team_assignment_path(@team, a) %>

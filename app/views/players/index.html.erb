@@ -3,5 +3,6 @@
 <% @players.each do |p| %>
     <li><%= "#{p.specialty}, #{p.name}" %> <%= link_to "Profile", player_path(p) %></li>
 <% end %>
+<%= link_to "Leaders", leader_path %>
 </ul>
 <li><a href="/home"><button class="btn btn-primary">Home</button></a></li>

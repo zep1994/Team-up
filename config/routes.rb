@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :assignments
 
-
+   get '/leader' => 'players#leaders'
 
   root 'sessions#welcome'
 

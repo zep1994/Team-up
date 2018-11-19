@@ -6,10 +6,10 @@ class Team < ApplicationRecord
   validates_presence_of :name
 
 
-
+  #or accepts nested attributes
   def assignments_attributes=(assignments_attributes)
       assignments_attributes.values.each do |assignment_attributes|
-          if assignment_attributes[:team_id] != ""
+          if assignment_attributes[:team_id] != "" #or present?
               assignment = Assignment.find_or_create_by(assignment_attributes)
               if !self.assignments.include?(assignment)
                   self.assignments.build(assignment_attributes)

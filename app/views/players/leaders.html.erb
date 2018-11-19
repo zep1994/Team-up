@@ -1,0 +1,5 @@
+<h1>Leaders</h1>
+
+<% @players.each do |p| %>
+    <li><%= "#{p.specialty}, #{p.name}" %> <%= link_to "Profile", player_path(p) %></li>
+<% end %>
