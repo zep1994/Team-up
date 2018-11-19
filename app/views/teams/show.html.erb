@@ -10,8 +10,7 @@
 <h3>Current Team</h3>
 <ul class="align">
 <% @players.each do |p| %>
-    <% a = Assignment.find_by(:team_id => @team.id, :player_id => p.id) %>
-    <li><%= link_to "#{p.name}", team_assignment_path(@team, a) %></li>
+    <li><%= p.name %></li>
 <% end %>
 </ul>
 <br>

@@ -22,7 +22,6 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find_by_id(params[:id])
         @players = @team.players
-        # render json: @ship
     end
 
     def edit

@@ -1,9 +1,21 @@
-<li>Current assignment(s):<br /><br />
+[]<li>Current assignment(s):<br /><br />
     <% if @player.assignments %>
         <% @player.assignments.each do |a| %>
             <%=  a.name %><br />
         <% end %>
     <% end %></li>
+
+[]    if @assignment.save
+      flash[:success] = "Saved!"
+    else
+      flash[:error] = "error"
+    end
+
+
+
+[]    <%= link_to "#{p.name}", team_assignment_path(@team, a) %>
+    <% a = Assignment.find_by(:team_id => @team.id, :player_id => p.id) %>
+
 
     <p>Create Assignment?</p>
     <%= f.fields_for :assignments, @team.assignments.build do |a| %>

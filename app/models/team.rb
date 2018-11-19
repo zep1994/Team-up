@@ -6,6 +6,7 @@ class Team < ApplicationRecord
   validates_presence_of :name
 
 
+
   def assignments_attributes=(assignments_attributes)
       assignments_attributes.values.each do |assignment_attributes|
           if assignment_attributes[:team_id] != ""

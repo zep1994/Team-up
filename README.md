@@ -23,3 +23,11 @@ Things you may want to cover:
 
 * ...
 # Team-up
+
+#Install
+fork & clone
+bundle install
+rake db:migrate
+rake db:seed
+rails s
+go to http://localhost:3000/ in your browser
