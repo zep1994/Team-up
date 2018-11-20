@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     @player = Player.new
-    render 'login'
+    render 'login', notice: "Successfully Signed Up."
   end
 
   def home
@@ -15,12 +15,12 @@ class SessionsController < ApplicationController
         oauth_email = request.env["omniauth.auth"]["email"]
         if @player = Player.find_by(:email => oauth_email)
           session[:player_id] = @player.id
-          redirect_to player_path(@player)
+          redirect_to player_path(@player), notice: "Successfully Logged In."
         else
           player = Player.new(:email => oauth_email)
           if @player.save
             session[:player_id] = @player.id
-            redirect_to player_path(@player)
+            redirect_to player_path(@player), notice: "Successfully Logged In."
           else
             redirect_to root_path
           end
@@ -39,9 +39,9 @@ class SessionsController < ApplicationController
   def logout
     if session[:player_id]
         session.clear
-        redirect_to login_path
+        redirect_to login_path, notice: "Successfully Logged Out."
     else
-        redirect_to home_path
+        redirect_to home_path, notice: "There was an Error logging out."
     end
   end
 

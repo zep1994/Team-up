@@ -19,7 +19,7 @@ class PlayersController < ApplicationController
               session[:player_id] = @player.id
               redirect_to player_path(@player), notice: "Player sign up was successful."
           else
-              redirect_to new_player_path, error: "Error: #{@player.errors.full_messages.join(", ")}"
+              redirect_to new_player_path, notice: "Uh-oh there was and error."
           end
       end
 
