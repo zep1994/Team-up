@@ -4,10 +4,14 @@ class AssignmentsController < ApplicationController
     before_action :set_assignment, only: [:show, :edit, :update]
 
     def index
+      if params[:team_id]
       #1st you retrieve the team thanks to params[:team_id]
       team = Team.find(params[:team_id])
       #2nd you get all the assignments of this post
       @assignments = team.assignments
+    else
+      @assignments = Assignment.all
+    end
     end
 
     def new
