@@ -3,3 +3,4 @@
 <% @players.each do |p| %>
     <li><%= "#{p.specialty}, #{p.name}" %> <%= link_to "Profile", player_path(p) %></li>
 <% end %>
+<li><%= link_to "Players", players_path %></li>

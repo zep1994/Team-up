@@ -22,7 +22,7 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
           #add flash message?
-          redirect_to assignments_path(@assignment)
+          redirect_to assignments_path(@assignment), notice: "Successfully Created."
         else
             redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end

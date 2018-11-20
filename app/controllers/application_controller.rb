@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
+      #when you chain two exclamation marks together, it converts the value to a boolean
       !!current_user
     end
 

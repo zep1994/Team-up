@@ -30,6 +30,14 @@
       redirect_to player_path(@player)
     end
 
+    def self.from_omniauth(auth)
+   where(provider: auth.provider, uid: auth.uid).first_or_create do |player|
+     player.email = auth.info.email
+     player.password = Devise.friendly_token[0,20]
+     player.name = auth.info.name  
+   end
+ end
+
 
 []    <%= link_to "#{p.name}", team_assignment_path(@team, a) %>
     <% a = Assignment.find_by(:team_id => @team.id, :player_id => p.id) %>
@@ -48,3 +56,14 @@
         <%= a.label :description %>
         <%= a.text_field :description %>
     <% end %>
+
+
+
+
+Both paths /team/team_id/assignments
+&&
+/assignments
+
+add error message for the signup
+
+README

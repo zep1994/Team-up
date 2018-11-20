@@ -9,6 +9,5 @@ class Player < ApplicationRecord
   validates :name, uniqueness: true
 
   scope :leader, -> { where(leader: true) }
-  scope :rest, -> { where(leader: false) }
 
 end

@@ -6,6 +6,8 @@
     <li>Role: <%= @team.role %></li>
     <li>Team Quote: <%= @team.quote %></li>
 </ul><br>
+<h3>Assignments</h3>
+<%= link_to "Assignments", team_assignments_path(@team) %>
 
 <h3>Current Team</h3>
 <ul class="align">

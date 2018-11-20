@@ -29,9 +29,9 @@ class SessionsController < ApplicationController
       @player = Player.find_by(name: params[:player][:name])
         if @player && @player.authenticate(params[:player][:password])
             session[:player_id] = @player.id
-            redirect_to home_path
+            redirect_to home_path, notice: "Successfully Logged In."
         else
-            redirect_to login_path
+            redirect_to login_path, notice: "There was an error, please try again."
         end
       end
     end

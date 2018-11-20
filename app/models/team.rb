@@ -6,7 +6,8 @@ class Team < ApplicationRecord
   validates_presence_of :name
 
 
-  #or accepts nested attributes
+  #or accepts_nested_attributes_for :assignments
+  #A setter method establishes or reestablishes the value for an instance variable.
   def assignments_attributes=(assignments_attributes)
       assignments_attributes.values.each do |assignment_attributes|
           if assignment_attributes[:team_id] != "" #or present?
