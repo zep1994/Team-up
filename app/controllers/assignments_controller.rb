@@ -1,15 +1,13 @@
 class AssignmentsController < ApplicationController
     before_action :require_login, :authenticate_user
-    before_action :set_team, only: [:edit, :update]
+    before_action :set_team, only: [:edit, :update, :show, :index]
     before_action :set_assignment, only: [:show, :edit, :update]
 
     def index
-        @assignments = Assignment.all
-        if params[:team_id]
-            @assignment = Assignment.new(team_id: params[:team_id])
-        else
-            @assignment = Assignment.new
-        end
+      #1st you retrieve the team thanks to params[:team_id]
+      team = Team.find(params[:team_id])
+      #2nd you get all the assignments of this post
+      @assignments = team.assignments
     end
 
     def new
@@ -27,7 +25,9 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        if @assignment
+      if @assignment
+        team = Team.find(params[:team_id])
+        @assignment = team.assignments.find(params[:id])
           redirect_to assignment_path(@assignment)
         else
             redirect_to new_assignment_path, notice: "That team does not currently have an assignment, create one here."
