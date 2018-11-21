@@ -1,80 +1,57 @@
-# Project Title
+# Team Up
 
-One Paragraph of project description goes here
+Team Up allows you to keep track of the friends you play games with. You can
+pair them to a certain team and view the players of that team and just that team.
+You can create goals for a team and create different teams with different goals.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In order to get this running on your local machine, just:
+Git clone,
+bundle install,
+rake db:migrate,
+rails s
+After this go to localhost:3000 and you can view it on your machine
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+Make sure you have Rails and Ruby installed on your local computer to view the project live.
 ```
-Give examples
+gem install rails
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Git Clone in your terminal and cd into the folder, then open up your favorite IDE.
+Here you will find a rails directory, the majority of the code is located in the
+Model, Controller, views, and the db folder.
 
-Say what the step will be
 
-```
-Give the example
-```
-
-And repeat
 
 ```
-until finished
+```
+Currently there are no test, but some will be coming soon.
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+``````
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+None at this time.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Atom](https://atom.io/) - The IDE used
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/zep1994/) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Thomas Matlock** - *TM* - [Zep1994](https://github.com/zep1994)
 
 ## License
 
@@ -82,6 +59,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
+* Thank you to the Flatiron coaches for all the hard work and help
+* Perseverance
 * etc
