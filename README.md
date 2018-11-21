@@ -7,12 +7,13 @@ You can create goals for a team and create different teams with different goals.
 ## Getting Started
 
 In order to get this running on your local machine, just:
+```
 Git clone,
 bundle install,
 rake db:migrate,
 rails s
 After this go to localhost:3000 and you can view it on your machine
-
+```
 
 ### Prerequisites
 
