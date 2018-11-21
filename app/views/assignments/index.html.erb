@@ -1,8 +1,8 @@
-<h1>All assignments for all teams:</h1>
+<h1>Assignments</h1>
 <ul id="assignmentList align">
 <% @assignments.each do |a| %>
     <li>
-      <%= a.player.name %> is <%= link_to "assigned", team_assignment_path(a.team, a) %> to the <%= a.team.name %>.
+      <%= a.player.name %> is assigned to the <%= a.team.name %>. <p class="name_desc">Name: <%= a.name %>,<br /> Description: <%= a.description %></p>
     </li>
 <% end %>
 </ul>
