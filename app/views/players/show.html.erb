@@ -8,6 +8,12 @@
     </ul>
 <br>
 <br>
+<li>Current assignment(s):<br /><br />
+    <% if @player.assignments %>
+        <% @player.assignments.each do |a| %>
+            <%=  a.name %><br />
+        <% end %>
+    <% end %></li>
 <div class="realign1">
 <p class="realign"><%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Delete", @player, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
 <li><a href="/home"><button class="btn btn-primary">Home</button></a></li>
