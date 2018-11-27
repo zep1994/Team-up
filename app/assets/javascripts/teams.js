@@ -7,7 +7,7 @@ class Team {
     this.quote = attr.quote
   }
   renderTeam() {
-    return 'Name: <a href="#" onclick="teamData(' + this.id + ')">' + this.name + '</a>' 
+    return 'Name: <a href="#" onclick="teamData(' + this.id + ')">' + this.name + '</a>'
   }
 }
 
