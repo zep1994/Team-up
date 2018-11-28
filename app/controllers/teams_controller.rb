@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
 
     def index
         @teams = Team.all
-        render json: @teams 
+        render json: @teams
 
     end
 
@@ -24,6 +24,10 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find_by_id(params[:id])
         @players = @team.players
+        respond_to do |format|
+          format.json { render json: @team }
+          format.html { render :show }
+        end
     end
 
     def edit

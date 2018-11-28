@@ -35,3 +35,16 @@ function getTeams() {
     })
   }
 }
+
+function teamData(team_id) {
+  let moreData = document.querySelector('#moreData')
+  const req = new XMLHttpRequest()
+  const requestUrl = "/teams/"+`${team_id}`
+  req.open('GET', requestUrl)
+  req.responseType = 'json'
+  req.send()
+  req.onload = function() {
+    let team = new Team(req.response)
+    moreData.innerHTML = '<br><h3>Additional Information for '+team.name+'</h3><p><strong>Type of Player: </strong>'+team.type_player+', <strong>Note: </strong>'+team.quote+'</p><a href="/teams/'+team.id+'">Manage Team</a>';
+  }
+}
