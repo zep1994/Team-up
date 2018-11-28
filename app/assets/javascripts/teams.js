@@ -53,6 +53,18 @@ function teamData(team_id) {
     playerLink = document.createElement('a')
     playerLink.innerHTML = '<a href="/assignments">Assignments</a>'
 
-    moreData.appendChild(playerLink)
+    if (team.players.length > 0) {
+      team.players.forEach(function(player) {
+        playerLi = document.createElement('li')
+        playerLi.innerHTML = '<li><strong>Players: </strong>' + player.name + '</li>'
+        playerUL.appendChild(playerLi)
+      })
+      moreData.appendChild(playerLink)
+    } else {
+      playerLi = document.createElement('li')
+      playerLi.innerHTML = '<li><strong>There are no players currently on this team</strong></li>'
+      playerLi.appendChild(playerLi)
+      moreData.appendChild(playerLink)
+    }
   }
 }
