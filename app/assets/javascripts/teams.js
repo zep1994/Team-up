@@ -5,6 +5,7 @@ class Team {
     this.type_player = attr.type_player
     this.role = attr.role
     this.quote = attr.quote
+    this.players = attr.players
   }
   renderTeam() {
     return 'Name: <a href="#" onclick="teamData(' + this.id + ')">' + this.name + '</a>'
@@ -45,6 +46,13 @@ function teamData(team_id) {
   req.send()
   req.onload = function() {
     let team = new Team(req.response)
-    moreData.innerHTML = '<br><h3>Additional Information for '+team.name+'</h3><p><strong>Role: </strong>'+team.role+', <strong>Note: </strong>'+team.quote+'</p><a href="/teams/'+team.id+'">Manage Team</a>';
+    moreData.innerHTML = '<br><h3>Additional Information for '+team.name+'</h3><p><strong>Role: </strong>'+team.role+', <strong>Note: </strong>'+team.quote+'</p><a href="/teams/'+team.id+'">Manage Team</a>'
+    playerUL = document.createElement('ul')
+    moreData.appendChild(playerUL)
+
+    playerLink = document.createElement('a')
+    playerLink.innerHTML = '<a href="/assignments">Assignments</a>'
+
+    moreData.appendChild(playerLink)
   }
 }
