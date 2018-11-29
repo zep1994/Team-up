@@ -58,6 +58,11 @@
     <% end %>
 
 
+    #1st you retrieve the team thanks to params[:team_id]
+    team = Team.find(params[:team_id])
+    #2nd you get all the assignments of this post
+    @assignments = team.assignments
+
 
 
 Both paths /team/team_id/assignments
@@ -67,3 +72,7 @@ Both paths /team/team_id/assignments
 add error message for the signup
 
 README
+
+
+#add flash message?
+redirect_to assignments_path(@assignment), notice: "Successfully Created."

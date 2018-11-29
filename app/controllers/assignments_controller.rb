@@ -5,13 +5,13 @@ class AssignmentsController < ApplicationController
 
     def index
       if params[:team_id]
-      #1st you retrieve the team thanks to params[:team_id]
-      team = Team.find(params[:team_id])
-      #2nd you get all the assignments of this post
-      @assignments = team.assignments
-    else
-      @assignments = Assignment.all
-    end
+        #1st you retrieve the team thanks to params[:team_id]
+        team = Team.find(params[:team_id])
+        #2nd you get all the assignments of this post
+        @assignments = team.assignments
+      else
+        @assignments = Assignment.all
+      end
     end
 
     def new
@@ -21,8 +21,10 @@ class AssignmentsController < ApplicationController
     def create
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
-          #add flash message?
-          redirect_to assignments_path(@assignment), notice: "Successfully Created."
+        respond_to do |format|
+          format.json { render json: @assignment }
+          format.html { render :show }
+        end
         else
             redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
@@ -32,7 +34,10 @@ class AssignmentsController < ApplicationController
       if @assignment
         team = Team.find(params[:team_id])
         @assignment = team.assignments.find(params[:id])
-          redirect_to assignment_path(@assignment)
+          respond_to do |format|
+            format.json { render json: @assignment }
+            format.html { render :show }
+          end
         else
             redirect_to new_assignment_path, notice: "That team does not currently have an assignment, create one here."
         end

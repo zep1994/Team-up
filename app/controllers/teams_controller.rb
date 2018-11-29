@@ -24,6 +24,7 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find_by_id(params[:id])
         @players = @team.players
+        @assignment = @team.assignments.build
         respond_to do |format|
           format.json { render json: @team }
           format.html { render :show }
