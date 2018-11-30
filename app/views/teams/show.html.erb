@@ -18,32 +18,10 @@
 <br>
 <p><%= link_to "Add assignment", new_team_assignment_path(@team) %></p>
 
-<%= form_for([@team, @assignment]) do |f| %>
-<div class="center">
-    <strong><%= f.label :name %></strong>
-    <%= f.text_field :name %><br>
+<h2>Create new assignment:</h2>
+<%= render 'assignments/form' %>
 
-    <strong><%= f.label :description %></strong>
-    <%= f.text_field :description %><br></br>
-
-    <strong><%= f.label :team_id %></strong><br>
-    <!-- <%= f.collection_check_boxes :team_id, Team.all, :id, :name %><br></br> -->
-    <%= f.select(:team_id) do %>
-        <%= options_from_collection_for_select(Team.all, :id, :name, :selected => @assignment.team_id) %>
-    <% end %>
-
-    <br></br>
-    <strong><%= f.label :player_id %></strong><br>
-    <!--<%= f.collection_check_boxes :player_id, Player.all, :id, :name %><br> -->
-    <%= f.select(:player_id) do %>
-        <%= options_from_collection_for_select(Player.all, :id, :name, :selected => @assignment.player_id) %>
-    <% end %>
-
-    <br></br>
-    <!-- <%= f.submit %> -->
-    <button type="submit" name="commit" value="Create Assignment class="btn btn-primary"">Create Assignment</button>
-</div>
-<% end %>
+<script>window.onload = postAssignment();</script>
 
 
 <br></br>

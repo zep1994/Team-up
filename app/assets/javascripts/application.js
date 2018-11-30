@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+//= require jquery
 //= require jquery3
 //= require jquery-ujs
 //= require popper
