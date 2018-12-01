@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
     before_action :require_login, :authenticate_user
-    before_action :set_team, only: [:edit, :update, :show, :index]
+    before_action :set_team, only: [:edit, :update, :show, :index, :create, :new]
     before_action :set_assignment, only: [:show, :edit, :update]
 
     def index
@@ -19,12 +19,9 @@ class AssignmentsController < ApplicationController
     end
 
     def create
-        @assignment = Assignment.new(assignment_params)
+        @assignment = @team.assignments.new(assignment_params)
         if @assignment.save
-        respond_to do |format|
-          format.json { render json: @assignment }
-          format.html { render :show }
-        end
+       redirect_to @team
         else
             redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
