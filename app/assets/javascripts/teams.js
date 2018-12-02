@@ -68,3 +68,28 @@ function teamData(team_id) {
     }
   }
 }
+
+$(() => {
+  function Assignment(data) {
+    this.id = data.id;
+    this.name = data.name;
+    this.team_id = data.team_id
+    this.player_id = data.player_id
+  }
+
+  Assignment.prototype.postAssignment = function() {
+    $("#add-assignment").val("");
+    var ol = $("div.assignments ol")
+    ol.append("<li class='assignment'>" + this.name + "</li>");
+  }
+
+  $("form#new_assignment").submit(function(e){
+    $.post(this.action, $(this).serialize(),
+      function(response){
+        var assignment = new Assignment(response);
+        assignment.postAssignment();
+        $('input:submit').attr('disabled', false)
+      }, "json");
+    e.preventDefault();
+  })
+})

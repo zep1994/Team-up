@@ -21,7 +21,10 @@ class AssignmentsController < ApplicationController
     def create
         @assignment = @team.assignments.new(assignment_params)
         if @assignment.save
-       redirect_to @team
+          respond_to do |format|
+                format.json { render json: @assignment.to_json }
+                format.html { render :show }
+            end
         else
             redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end

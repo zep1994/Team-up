@@ -2,6 +2,7 @@
   "name": "fortniteam",
   "private": true,
   "dependencies": {
-    "jquery-ujs": "^1.2.2"
+    "jquery-ujs": "^1.2.2",
+    "turbolinks": "^5.2.0"
   }
 }

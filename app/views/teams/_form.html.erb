@@ -1,0 +1,22 @@
+<div class="team_form">
+<%= form_for @team do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :type_player, "Type Team" %>
+    <%= f.text_field :type_player %><br>
+    <%= f.label :role, "Goals" %>
+    <%= f.text_field :role %><br>
+    <%= f.label :quote %>
+    <%= f.text_field :quote %><br>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<% if @team.errors.any? %>
+  <div class="error_explanation">
+    <% @team.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+</div>
+<% end %>

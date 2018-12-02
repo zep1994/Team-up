@@ -10,20 +10,17 @@
 <%= link_to "Assignments", team_assignments_path(@team), :class => "load_assignments" %>
 
 <h3>Current Team</h3>
-<ul class="align">
-<% @players.each do |p| %>
-    <li><%= p.name %></li>
-<% end %>
-</ul>
+<div class="assignments">
+  <ol class="align assignmentList">
+    <% @players.each do |p| %>
+        <li class="assignment"><%= p.name %></li>
+    <% end %>
+  </ol>
+</div>
 <br>
 <p><%= link_to "Add assignment", new_team_assignment_path(@team) %></p>
 
-<h2>Create new assignment:</h2>
-<%= render 'assignments/form' %>
-
-
-
-
+<%= render "assignments/form" %>
 <br></br>
 
 <p><%= link_to "Edit this team's info", edit_team_path(@team) %> | <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Confirm Deleting?" }  %></p>

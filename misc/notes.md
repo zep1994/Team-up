@@ -76,3 +76,33 @@ README
 
 #add flash message?
 redirect_to assignments_path(@assignment), notice: "Successfully Created."
+
+
+(function(){
+
+  var $assignments = $('.assignments')
+  var $name = $('#name')
+  var $description = $('#description')
+  var $assignment_team_id = $('#assignment_team_id')
+  var $assignment_player_id = $('#assignment_player_id')
+
+
+  $('#add-assignment').on('click', function(event) {
+    var assignment = {
+      name: $name.val(),
+      description: $description.val(),
+      team_id: $assignment_team_id.val(),
+      player_id: $assignment_player_id.val()
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: this.action
+    data: assignment,
+    success: function(newAssignment){
+      $assignments.append('<li>name: '+ newAssignment.name +', description: '+ newAssignment.description + ', team: '+ newAssignment.assignment_team_id + ', player: '+ newAssignment.assignment_player_id + '</li>')
+    }
+  })
+  event.preventDefault()
+  })
+})

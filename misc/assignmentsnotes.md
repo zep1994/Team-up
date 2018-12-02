@@ -45,4 +45,67 @@ function postAssignment(team_id) {
 window.onload = postAssignment()
 
 //teams/show
+<%= render 'assignments/form' %>
 <script>window.onload = postAssignment();</script>
+
+
+<br></br>
+<p><%= link_to "Edit this assignment", edit_assignment_path(@assignment.id) %></p>
+<p><%= link_to "Delete", @assignment, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
+
+
+$(function(){
+  $('#new_assignment').on('submit', function(event){
+    url = this.action
+    console.log(url)
+
+    data = {
+      'authenticity_token' : $("input[name='authenticity_token']").val(),
+      'assignment' : {
+        'name' : $("#assignment_name").val(),
+        'description' : $("#assignment_description").val(),
+        'team' : $("#assignment_team_id").val(),
+        'player' : $("#assignment_player_id").val()
+      }
+    }
+
+    $.ajax({
+      type: ($("input[name='_method']").val() || this.method),
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        $("#assignment_name").val("");
+        $("#assignment_description").val("");
+        $("#assignment_team_id").val("");
+        $("#assignment_player_id").val("");
+        var ul = $("div.align")
+      }
+    });
+    event.preventDefault()
+
+  })
+})
+
+, :description, :team_id, :player_id
+
+
+'description' : $("#assignment_description").val(),
+'team' : $("#assignment_team_id").val(),
+'player' : $("#assignment_player_id").val()
+
+
+<strong><%= f.label :description %></strong>
+<%= f.text_field :description %><br></br>
+
+<strong><%= f.label :team_id %></strong><br>
+<!-- <%= f.collection_check_boxes :team_id, Team.all, :id, :name %><br></br> -->
+<%= f.select(:team_id) do %>
+    <%= options_from_collection_for_select(Team.all, :id, :name, :selected => @assignment.team_id) %>
+<% end %>
+
+<br></br>
+<strong><%= f.label :player_id %></strong><br>
+<!--<%= f.collection_check_boxes :player_id, Player.all, :id, :name %><br> -->
+<%= f.select(:player_id) do %>
+    <%= options_from_collection_for_select(Player.all, :id, :name, :selected => @assignment.player_id) %>
+<% end %>
