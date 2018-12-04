@@ -1,10 +1,10 @@
 <%= form_for([@team, @assignment]) do |f| %>
 <div class="center">
     <strong><%= f.label :name %></strong>
-    <%= f.text_field :name, id: "name" %><br>
+    <%= f.text_field :name, id: "assignment_name" %><br>
 
     <strong><%= f.label :description %></strong>
-    <%= f.text_field :description, id: "description" %><br></br>
+    <%= f.text_field :description, id: "assignment_description" %><br></br>
 
     <strong><%= f.label :team_id %></strong><br>
     <!-- <%= f.collection_check_boxes :team_id, Team.all, :id, :name %><br></br> -->
@@ -20,6 +20,7 @@
     <% end %>
 
     <br></br>
-     <button id="add-assignment">Add</button>
+     <!-- <button id="add-assignment">Add</button> -->
+     <%= f.submit id: "add_assignment" %>
 </div>
 <% end %>
