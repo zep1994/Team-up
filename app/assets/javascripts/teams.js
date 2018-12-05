@@ -1,6 +1,3 @@
-$(() => {
-  addAssignment()
-})
 class Team {
   constructor(attr) {
     this.id = attr.id
@@ -72,25 +69,13 @@ function teamData(team_id) {
   }
 }
 
-
-// $(() => {
-//   function Assignment(data) {
-//     this.id = data.id;
-//     this.name = data.name;
-//     this.team_id = data.team_id
-//     this.player_id = data.player_id
-//   }
-
-          class Assignment {
-            constructor(attr) {
-              //this.id = attr.id
-              this.name = attr.name
-              this.description = attr.description
-              this.team_id = attr.team_id
-              this.player_id = attr.player_id
-
-            }
-          }
+$(() => {
+  function Assignment(data) {
+    this.id = data.id;
+    this.name = data.name;
+    this.team_id = data.team_id
+    this.player_id = data.player_id
+  }
 
   Assignment.prototype.postAssignment = function() {
     $("#add-assignment").val("");
@@ -98,24 +83,7 @@ function teamData(team_id) {
     ol.append("<li class='assignment'>" + this.name + "</li>");
   }
 
-  function addAssignment() {
-    $("input#add_assignment").on('click', function(event){
-    let player_id = $("select#assignment_player_id").val()
-    let name = $("input#assignment_name").val()
-    let description = $("input#assignment_description").val()
-    let team_id = $("select#assignment_team_id").val()
-    let assignment_data = {
-      name: name,
-      description: description,
-      team_id: team_id,
-      player_id: player_id
-    }
-  })
-  event.preventDefault();
-  event.stopImmediatePropagation();
-  debugger
-}
-  function createAssignment(data) {
+  $("form#new_assignment").submit(function(e){
     $.post(this.action, $(this).serialize(),
       function(response){
         var assignment = new Assignment(response);
@@ -123,4 +91,5 @@ function teamData(team_id) {
         $('input:submit').attr('disabled', false)
       }, "json");
     e.preventDefault();
-  }
+  })
+})
