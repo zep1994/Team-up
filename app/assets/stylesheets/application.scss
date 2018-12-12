@@ -99,6 +99,10 @@
   width: 24px;
 }
 
+div.col-md-8 {
+  margin-left: 10%;
+  padding: 5px;
+}
 
 
 .nav-item:not(:first-child) {
@@ -133,6 +137,21 @@ li {
 }
 
 .align {
-  margin-left: -50px;
   font-size: 18px;
+}
+
+.align li {
+  padding: 5px;
+}
+
+a.edit {
+  left: -100px;
+}
+
+ul.align a.edit {
+  margin-left: -40px;
+}
+
+li.assignment {
+  margin-left: -30px;
 }
