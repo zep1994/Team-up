@@ -1,5 +1,6 @@
 class Player {
   constructor(attr){
+    this.id = attr.id
     this.name = attr.name
     this.specialty = attr.specialty
     this.leader = attr.leader
@@ -31,5 +32,20 @@ function showPlayers(){
       playerLi.innerHTML = player.renderPlayer()
       playerUL.appendChild(playerLi)
     })
+  }
+}
+
+function playerData(player_id) {
+  let moreData = document.getElementById('moreData')
+  const req = new XMLHttpRequest()
+  req.open('GET', "players/" + `${player_id}`)
+  req.responseType = 'json'
+  req.send()
+  req.onload = function() {
+    let player = new Player(req.response)
+    moreData.innerHTML = '<br /><h3> Additional Player Info</h3><strong><h4> ' + player.name +  '</strong></h4><strong></p>' + player.specialty + '</strong></p>'
+    playerul = document.createElement('ul')
+    moreData.appendChild(playerul)
+
   }
 }
